@@ -1,0 +1,17 @@
+# Arquivos de log
+logs
+*.log
+
+# Pasta de módulos npm
+node_modules
+
+# Arquivo .env com configurações sensíveis
+.env
+
+# Arquivos de build
+dist
+build
+
+# Dependências específicas de sistema operacional
+.DS_Store
+Thumbs.db
