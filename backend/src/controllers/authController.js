@@ -19,25 +19,5 @@ export async function login(req, res){
     }
 }
 
-function removerToken(){
-    const dataAgora = new Date();
 
-    let dataExpirada = new Date(now.getTime() - 86400000)
-
-    dataExpirada = dataExpirada.toUTCString();
-
-    localStorage.removeItem("token");
-
-    sessionStorage.removeItem("token")
-
-    document.cookie = `token =; expires = ${dataExpirada}; path=/;`;
-    
-}
-
-export function logout(req, res){
-    removerToken();
-
-    res.redirect("/login");
-
-}
 

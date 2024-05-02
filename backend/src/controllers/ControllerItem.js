@@ -3,8 +3,10 @@ import { getAllItens, criarItem, getItemByID, apagarItemId, atualizarItem } from
 export async function cadastrarItem(req, res){
     const {  nome, quantidade, valor } = req.body;
     const idUsuario = req.userID;
+    console.log(`Id usuario; ${idUsuario}`)
     try{
         await criarItem(idUsuario, nome, quantidade, valor);
+
         res.status(201).send("Item criado com sucesso")
     }catch (error){
         console.error(`Erro ao criar item: ${error}`)
@@ -66,8 +68,8 @@ export async function apagarItem(req, res){
 }
 
 export async function atualizarItemPorId(req, res) {
-    const id = req.params.id;
-    const { nome, quantidade, valor } = req.body;
+
+    const {id, nome, quantidade, valor } = req.body;
 
     try {
         

@@ -5,12 +5,15 @@ import bodyParser from "body-parser";
 import usuariosRouter from "./Routers/usuarios.js"
 import itensRouter from "./Routers/itens.js"
 import rotasProtegidas from "./Routers/authRoutes.js";
+import cors from "cors";
 
 const port = 4000;
 
 
 const app = express();
 app.use(bodyParser.json());
+
+app.use(cors());
 
 createTableUsuario();
 createTableItem();
