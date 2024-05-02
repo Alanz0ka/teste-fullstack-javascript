@@ -9,7 +9,7 @@ router.post("/cadastro", authenticateJwt, cadastrarItem)
 
 router.get("/", authenticateJwt, listarItens)
 
-router.get("/:id", authenticateJwt, listarItemId)
+router.get("/:id", listarItemId)
 
 router.delete("/:id", authenticateJwt, apagarItem)
 

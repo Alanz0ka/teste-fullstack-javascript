@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import usuariosRouter from "./Routers/usuarios.js"
 import itensRouter from "./Routers/itens.js"
 import rotasProtegidas from "./Routers/authRoutes.js";
+import home from "./Routers/homeRoute.js"
 import cors from "cors";
 
 const port = 4000;
@@ -22,11 +23,13 @@ app.get("/helloworld", (req, res)=>{
     res.send("Hello World");
 });
 
-app.use("/auth", rotasProtegidas)
+app.use("/auth", rotasProtegidas);
 
-app.use("/usuarios", usuariosRouter)
+app.use("/usuarios", usuariosRouter);
 
-app.use("/itens", itensRouter)
+app.use("/itens", itensRouter);
+
+app.use("/home", home);
 
 app.listen(port, ()=>{
     console.log(`Servidor rodando na porta: ${port}`)
