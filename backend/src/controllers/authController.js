@@ -9,15 +9,13 @@ export async function login(req, res){
             return res.status(401).json({error: "Usuário não encontrado"});
         }
 
-        const token = gerarToken({userId: usuario.id});
+        const token = gerarToken({ userId: usuario.id });
+        const { nome, email: userEmail } = usuario; // Renomeando 'email' para 'userEmail' para evitar conflito com 'const email'
 
-        res.json({token});
+        res.json({ token, user: { nome, email: userEmail } });
 
-    }catch(error){
+    } catch(error){
         console.error(`Erro ao fazer login: ${error}`);
-        res.status(500).json({error: "Erro interno do servidor"})
+        res.status(500).json({error: "Erro interno do servidor"});
     }
 }
-
-
-
