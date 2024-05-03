@@ -10,9 +10,9 @@ export async function login(req, res){
         }
 
         const token = gerarToken({ userId: usuario.id });
-        const { nome, email: userEmail } = usuario; // Renomeando 'email' para 'userEmail' para evitar conflito com 'const email'
+        const { nome, email: userEmail } = usuario;
 
-        res.json({ token, user: { nome, email: userEmail } });
+        res.json({ token, user: { nome, email: userEmail, id: usuario.id } });
 
     } catch(error){
         console.error(`Erro ao fazer login: ${error}`);

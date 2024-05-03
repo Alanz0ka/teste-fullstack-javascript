@@ -7,13 +7,13 @@ const router = express.Router();
 
 router.post("/cadastro", authenticateJwt, cadastrarItem)
 
-router.get("/", authenticateJwt, listarItens)
+router.get("/:id", authenticateJwt, listarItens)
 
-router.get("/:id", listarItemId)
+// router.get("/:id", listarItemId)
 
-router.delete("/:id", authenticateJwt, apagarItem)
+router.delete("/delete/:id", authenticateJwt, apagarItem)
 
 router.put("/:id", authenticateJwt, atualizarItemPorId)
 
 
-export default router
+export default router;

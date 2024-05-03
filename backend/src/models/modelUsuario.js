@@ -17,6 +17,19 @@ export async function criarUsuario(nome, email, senha){
     }
 }
 
+export async function buscarIdUsuarioPorEmail(emial){
+    const db = await openDb();
+    try{
+        const usuario = await db.get(`SELECT id FROM usuario WHERE email = ?`,[email]);
+        console.log(`Usuario encontrado por email: ${usuario}`)
+        return usuario;
+    } catch (error){
+        console.error(`Erro ao buscar id do usuario por email: ${error}`)
+    } finally{
+        await db.close()
+    }
+}
+
 export async function buscarUsuarioPorEmail(email){
     const db = await openDb();
     try{

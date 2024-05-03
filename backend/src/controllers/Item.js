@@ -6,7 +6,7 @@ export async function createTableItem() {
         await db.exec(`
             CREATE TABLE IF NOT EXISTS item(
                 id INTEGER PRIMARY KEY,
-                id_usuario INTEGER,
+                id_usuario INTEGER AUTO INCREMENT,
                 nome TEXT,
                 quantidade INTEGER,
                 valor NUMERIC,

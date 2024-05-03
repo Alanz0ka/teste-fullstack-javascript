@@ -1,4 +1,4 @@
-import { criarUsuario, buscarUsuarioPorEmail } from "../models/modelUsuario.js";
+import { criarUsuario, buscarUsuarioPorEmail, buscarIdUsuarioPorEmail } from "../models/modelUsuario.js";
 export async function registrarUsuario(req, res){
     const {nome, email, senha} = req.body;
     try{
@@ -14,4 +14,19 @@ export async function registrarUsuario(req, res){
         res.status(500).send("Erro interno do servidor")
     }
     
+}
+
+export async function buscarUsuarioIdPorEmail(req, res){
+    const email = req.body.email;
+    try{
+        
+        const usuarioExiste = await buscarIdUsuarioPorEmail(email);
+        if(usuarioExiste){
+            return res.json(usuarioExiste);
+        }
+        
+    }catch (error){
+        console.error(`Erro ao Buscar Usuario: ${error}`)
+        res.status(500).send("Erro interno do servidor")
+    }
 }

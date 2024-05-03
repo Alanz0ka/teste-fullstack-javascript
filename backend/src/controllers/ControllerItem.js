@@ -14,13 +14,27 @@ export async function cadastrarItem(req, res){
     }
 }
 
-export async function listarItens(req, res){
-    try{
-        const itens = await getAllItens();
-        res.json(itens).status(200)
-    }catch (error){
-        console.error(`Erro ao listar os itens: ${error}`)
-        res.status(500).json({ error: "Erro interno do servidor" })
+export async function listarItens(req, res) {
+    const id = req.params.id;
+    try {
+        if (!Number.isInteger(Number(id)) || id <= 0) {
+            console.error("ID inválido:", id);
+            return res.status(400).send("Id inválido");
+        }
+
+        console.log("Buscando itens para o usuário com ID:", id);
+        const itens = await getAllItens(id);
+
+        if (!itens || itens.length === 0) {
+            console.log("Nenhum item encontrado para o usuário com ID:", id);
+            return res.status(404).send("Nenhum item encontrado para o usuário");
+        }
+
+        console.log("Itens encontrados:", itens);
+        res.json(itens).status(200);
+    } catch (error) {
+        console.error("Erro ao listar os itens:", error);
+        res.status(500).json({ error: "Erro interno do servidor" });
     }
 }
 
