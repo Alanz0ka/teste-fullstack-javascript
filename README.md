@@ -1,62 +1,83 @@
-# Teste Desenvolvedor fullstack js/ts
+# Sistema de Gerenciamento de Itens
 
-Desenvolver uma aplicação web CRUD completa com base em seus conhecimentos, utilizando ReactJS no front-end e NodeJS no back-end. A aplicação deve ter as funcionalidades/requisitos abaixo:
+Este é um sistema de gerenciamento de itens que consiste em um frontend e um backend. O frontend permite aos usuários visualizar, adicionar, editar e excluir itens, enquanto o backend fornece uma API RESTful para interação com os dados dos itens.
 
-## funcionalidades/requisitos
+## Como executar
 
-### backend
-* Cadastro de Usuário
-* Autenticação (login/logout) e acesso a rotas privadas da api com token jwt
-* Listar, cadastrar, editar e excluir itens relacionados a um usuário.
-* Utilizar uma API RESTful para comunicação entre o front-end e o back-end.
-* Utilizar um banco de dados relacional postgreSQL ou SQLite
+### Frontend
 
-### frontend
-* Páginas
-  * Cadastro de novo usuário (rota aberta)
-  * Login (rota aberta)
-  * Listagem de itens cadastrados (rota privada)
-  * Cadastro de novo item (rota privada)
-  * Atualização de item (rota privada)
-  * Exclusão de item (rota privada)
-* Gerenciamento de estado
-* Utilização de hooks
-* Integração com sua a api
+1. Certifique-se de ter o Node.js instalado em sua máquina.
+2. Clone este repositório
+3. Navegue até o diretório `/frontend` do projeto no terminal.
+4. Execute `npm install` para instalar as dependências.
+5. Execute `npm start` para iniciar o servidor de desenvolvimento.
+6. Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar o aplicativo.
 
-## Entrega
-O que esperamos receber?
+### Backend
 
-* Projeto funcionando :star2:
-* O código disponível no github com as devidas instruções para execução
-* Projeto estruturado como monorepo ex: 
+1. Certifique-se de ter o Node.js e o MongoDB instalados em sua máquina.
+2. Clone este repositório.
+3. Navegue até o diretório `/backend` do projeto no terminal.
+4. Execute `npm install` para instalar as dependências.
+5. Configure as variáveis de ambiente no arquivo `.env`.
+6. Execute `npm run dev` para iniciar o servidor.
+7. O servidor estará disponível em [http://localhost:4000](http://localhost:4000).
+
+## Tecnologias Utilizadas
+
+### Frontend
+
+- React.js
+- Styled Components
+- Axios
+
+### Backend
+
+- Node.js
+- Express.js
+- SqLite
+- JWT para autenticação
+
+## Funcionalidades
+
+- Visualização de itens
+- Adição de novos itens
+- Edição de itens existentes
+- Exclusão de itens
+
+## Estrutura do Projeto
 ```
-├── seu projeto
-│   ├── backend
-│   │   ├── node_modules
-│   │   ├── src
-│   │   ├── package.json
-│   │   └── ...
-│   ├── frontend
-│   │   ├── node_modules
-│   │   ├── src
-│   │   ├── package.json
-│   │   └── ...
-│   ├── LICENSE
-│   ├── README.md
-│   └── .gitignore
-
+sistema-gerenciamento-itens/
+|-- frontend/
+|   |-- public/
+|   |-- src/
+|   |   |-- Components/
+|   |   |   |-- Navbar/
+|   |   |   |-- ItemForm/
+|   |   |   |-- ItemList/
+|   |   |-- Pages/
+|   |   |   |-- Home/
+|   |   |   |-- Login/
+|   |   |   |-- Signup/
+|   |   |-- Services/
+|   |   |   |-- ApiService.js
+|   |   |   |-- AuthService.js
+|-- backend/
+|   |-- controllers/
+|   |   |-- ItemController.js
+|   |   |-- AuthController.js
+|   |-- models/
+|   |   |-- Item.js
+|   |   |-- User.js
+|   |-- routes/
+|   |   |-- itemRoutes.js
+|   |   |-- authRoutes.js
+|   |-- middleware/
+|   |   |-- authMiddleware.js
+|   |-- config/
+|   |   |-- config.js
+|   |-- index.js
 ```
+## Contato
 
-## Avaliação
-O que será avaliado?
-
-* Boas práticas de código.
-* Seu conhecimento técnico e criatividade
-* Organização e legibilidade do código
-
-
-
----
-Boa Sorte!! :sparkles:
-
-Equipe DMD2
+Para dúvidas ou sugestões, entre em contato pelo email: josealan.santos14@gmail.com
