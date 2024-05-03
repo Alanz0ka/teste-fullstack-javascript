@@ -5,8 +5,6 @@ logs
 # Pasta de módulos npm
 node_modules
 
-# Arquivo .env com configurações sensíveis
-.env
 
 # Arquivos de build
 dist
