@@ -11,7 +11,6 @@ export async function createTableUsuario() {
                 senha VARCHAR(255)
             )
         `);
-        console.log("Tabela de usuários criada com sucesso");
     } catch (error) {
         console.error(`Erro ao criar tabela de usuários: ${error}`);
     } finally {

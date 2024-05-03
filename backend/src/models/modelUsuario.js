@@ -17,11 +17,10 @@ export async function criarUsuario(nome, email, senha){
     }
 }
 
-export async function buscarIdUsuarioPorEmail(emial){
+export async function buscarIdUsuarioPorEmail(email){
     const db = await openDb();
     try{
         const usuario = await db.get(`SELECT id FROM usuario WHERE email = ?`,[email]);
-        console.log(`Usuario encontrado por email: ${usuario}`)
         return usuario;
     } catch (error){
         console.error(`Erro ao buscar id do usuario por email: ${error}`)
@@ -34,7 +33,6 @@ export async function buscarUsuarioPorEmail(email){
     const db = await openDb();
     try{
         const usuario = await db.get(`SELECT * FROM usuario WHERE email = ?`,[email]);
-        console.log(`Usuario encontrado por email: ${usuario}`)
         return usuario;
     } catch (error){
         console.error(`Erro ao buscar usuario por email: ${error}`)

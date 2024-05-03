@@ -1,5 +1,5 @@
 import express from "express";
-import { cadastrarItem, listarItens, listarItemId, apagarItem,atualizarItemPorId } from "../controllers/ControllerItem.js";
+import { cadastrarItem, listarItens, apagarItem,atualizarItemPorId } from "../controllers/ControllerItem.js";
 import { authenticateJwt } from "../middleware/authMiddleware.js";
 
 
@@ -9,11 +9,9 @@ router.post("/cadastro", authenticateJwt, cadastrarItem)
 
 router.get("/:id", authenticateJwt, listarItens)
 
-// router.get("/:id", listarItemId)
-
 router.delete("/delete/:id", authenticateJwt, apagarItem)
 
-router.put("/:id", authenticateJwt, atualizarItemPorId)
+router.put("/atualizar/:id", authenticateJwt, atualizarItemPorId)
 
 
 export default router;

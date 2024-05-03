@@ -10,7 +10,6 @@ export async function getAllItens(id){
             WHERE usuario.id = ?;
         `, [id]);
 
-        console.log(`Sucesso ao buscar itens:`, itens);
         
         return itens;
     } catch(error) {
@@ -24,7 +23,6 @@ export async function getItemByID(id){
     const db = await openDb();
     try{
         const item = await db.get(`SELECT * FROM item WHERE id =?`,[id])
-        console.log(`Sucesso ao buscar item`)
         return item;
     }catch(error){
         console.error(`Erro ao buscar os item: ${error}`);
@@ -61,7 +59,6 @@ export async function atualizarItem(idItem, nome, quantidade, valor) {
     const db = await openDb();
     try {
         await db.run(`UPDATE item SET nome = ?, quantidade = ?, valor = ? WHERE id = ?`, [nome, quantidade, valor, idItem]);
-        console.log("Item atualizado com sucesso");
     } catch (error) {
         console.error(`Erro ao atualizar item: ${error}`);
     } finally {

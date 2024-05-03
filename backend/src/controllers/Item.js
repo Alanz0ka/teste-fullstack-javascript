@@ -13,7 +13,6 @@ export async function createTableItem() {
                 FOREIGN KEY (id_usuario) REFERENCES usuario(id)
             )
         `);
-        console.log("Tabela de itens criada com sucesso");
     } catch (error) {
         console.error(`Erro ao criar tabela de itens: ${error}`);
     } finally {

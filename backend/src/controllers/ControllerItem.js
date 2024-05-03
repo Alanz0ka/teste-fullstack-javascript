@@ -22,15 +22,12 @@ export async function listarItens(req, res) {
             return res.status(400).send("Id inválido");
         }
 
-        console.log("Buscando itens para o usuário com ID:", id);
         const itens = await getAllItens(id);
 
         if (!itens || itens.length === 0) {
-            console.log("Nenhum item encontrado para o usuário com ID:", id);
-            return res.status(404).send("Nenhum item encontrado para o usuário");
+            return res.status(204).send("Nenhum item encontrado");
         }
 
-        console.log("Itens encontrados:", itens);
         res.json(itens).status(200);
     } catch (error) {
         console.error("Erro ao listar os itens:", error);

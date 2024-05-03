@@ -4,7 +4,6 @@ import { secretKey } from '../config.js';
 function authenticateJwt(req, res, next) {
     // Verificar se o token está presente no cabeçalho de autorização
     const authHeader = req.headers.authorization;
-    console.log('authHeader:', authHeader);
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         return res.status(401).json({ error: 'Token não fornecido' });
     }
